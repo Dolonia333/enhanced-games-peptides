@@ -1,0 +1,133 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { CTAButton, SecondaryButton } from "@/components/ui/Button";
+
+interface HeroBackgroundProps { className?: string }
+
+export const HeroBackground: React.FC<HeroBackgroundProps> = ({ className = "" }) => (
+  <div className={`relative w-full h-screen overflow-hidden ${className}`}>
+    <motion.div
+      className="absolute inset-0"
+      initial={{ opacity: 0, scale: 1.05 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-[#111111] to-[#222222]" />
+      <motion.div
+        className="absolute inset-0 flex items-center justify-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.3 }}
+      >
+        <div className="relative w-full max-w-5xl mx-auto px-4 flex items-center justify-center">
+          <div className="relative w-full aspect-[16/9] flex items-center justify-center">
+            <div className="relative w-full h-full">
+              <Image
+                src="/images/products/hero-product.jpg"
+                alt="Enhanced Games Peptides delivery system featuring precision pen-cartridges"
+                className="object-cover select-none"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                priority
+                quality={90}
+                style={{
+                  filter: "drop-shadow(0 0 40px rgba(50, 50, 50, 0.4))",
+                  transform: "perspective(2000px) rotateX(8deg) rotateY(-12deg) scale(1.2)",
+                  transformOrigin: "center center",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </motion.div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50" />
+      <div className="pointer-events-none absolute inset-0 RADIAL_VIGNETTE_MARKER bg-[radial-gradient(circle_at_center,transparent_55%,rgba(0,0,0,0.65))]"/>
+    </motion.div>
+  </div>
+);
+
+interface HeroSectionProps { onStartQuiz?: () => void; onViewCatalog?: () => void }
+
+export const HeroSection: React.FC<HeroSectionProps> = ({ onStartQuiz, onViewCatalog }) => (
+  <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <HeroBackground className="z-0" />
+    <div className="absolute inset-0 flex items-center justify-center z-10">
+      <div className="text-center text-white px-4 max-w-4xl mt-[30vh]">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-8"
+        >
+          <div className="flex flex-col items-center space-y-4">
+            <div className="logo-icon w-16 h-16 text-2xl bg-white text-black rounded-lg flex items-center justify-center font-bold">EG</div>
+            <div className="brand-text text-center">
+              <div className="enhanced-games text-white text-2xl md:text-3xl font-bold tracking-widest">ENHANCED GAMES</div>
+              <div className="peptides text-eg-cyan text-2xl md:text-3xl font-bold tracking-widest glow">PEPTIDES</div>
+              <div className="tagline text-gray-300 text-lg font-medium mt-2 tracking-wide">Peptides meet Simplicity</div>
+            </div>
+          </div>
+        </motion.div>
+        <motion.h1
+          className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          Your Peak Performance<br />
+          <span className="text-eg-cyan">Starts Here</span>
+        </motion.h1>
+        <motion.p
+          className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          Revolutionary peptide delivery through our innovative pen-cartridge system. Designed for the modern athlete who demands excellence.
+        </motion.p>
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
+          <CTAButton onClick={onStartQuiz} href="/quiz" className="text-lg px-8 py-4 min-w-60">Design Your Cycle</CTAButton>
+          <SecondaryButton onClick={onViewCatalog} href="/products" className="text-lg px-8 py-4 min-w-60 bg-white bg-opacity-20 border-white text-white hover:bg-white hover:text-gray-900">Continue to Catalog</SecondaryButton>
+        </motion.div>
+        <motion.div
+          className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+        >
+          <div className="text-center">
+            <div className="text-2xl font-bold text-eg-cyan">50K+</div>
+            <div className="text-sm text-gray-300">Active Athletes</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold text-eg-cyan">99.7%</div>
+            <div className="text-sm text-gray-300">Satisfaction Rate</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold text-eg-cyan">24/7</div>
+            <div className="text-sm text-gray-300">Medical Support</div>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+    <motion.div
+      className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+      animate={{ y: [0, 10, 0] }}
+      transition={{ duration: 2, repeat: Infinity }}
+    >
+      <div className="w-6 h-10 border-2 border-white rounded-full opacity-75">
+        <div className="w-1 h-3 bg-white rounded-full mx-auto mt-2" />
+      </div>
+    </motion.div>
+  </section>
+);
+
+export default HeroSection;

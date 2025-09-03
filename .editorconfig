@@ -1,0 +1,3 @@
+[src/components/sections/HeroSection.tsx]
+trim_trailing_whitespace = false
+insert_final_newline = false

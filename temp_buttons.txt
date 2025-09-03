@@ -1,0 +1,8 @@
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
+          <CTAButton onClick={onStartQuiz} href="/quiz" className="text-lg px-8 py-4 min-w-60">Design Your Cycle</CTAButton>
+        </motion.div>

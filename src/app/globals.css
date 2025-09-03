@@ -1,0 +1,456 @@
+@import "tailwindcss";
+
+/* Force dark mode for all Tailwind classes */
+:root {
+  color-scheme: dark;
+}
+
+:root {
+  /* Enhanced Games Primary Colors */
+  --eg-black: #000000;
+  --eg-blue: rgb(26, 4, 255);
+  --eg-neon-green: rgb(0, 194, 42);
+  --eg-neon-yellow: rgb(255, 174, 0);
+  --eg-white: #ffffff;
+  --eg-gray: #666666;
+  --eg-silver: #e6e6e6;
+  
+  /* Gradients */
+  --eg-gradient-primary: linear-gradient(135deg, var(--eg-blue) 0%, var(--eg-neon-green) 100%);
+  --eg-gradient-hero: linear-gradient(to bottom right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 100%);
+  
+  /* Glow Effects */
+  --glow-color: rgba(0, 194, 255, 0.35);
+  --glow-spread: 15px;
+  --eg-gradient-dark: linear-gradient(135deg, #000000 0%, #000000 100%);
+  
+  /* Neon Effects */
+  --neon-glow: 0 0 10px rgba(26, 4, 255, 0.5);
+  --neon-text-shadow: 0 0 5px rgba(26, 4, 255, 0.8);
+  
+  /* Fonts */
+  --font-primary: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: var(--font-inter), system-ui, sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+  
+  /* Dark theme colors */
+  --background: var(--eg-black);
+  --foreground: var(--eg-white);
+  --surface-dark: #000000;
+  --surface-darker: #000000;
+  
+  /* Custom color definitions for Tailwind v4 */
+  --color-eg-black: var(--eg-black);
+  --color-eg-blue: var(--eg-blue);
+  --color-eg-cyan: var(--eg-cyan);
+  --color-eg-white: var(--eg-white);
+  --color-eg-gray: #2a2a3a;
+  --color-eg-silver: #404050;
+}
+
+body {
+  background: var(--surface-darker);
+  color: var(--eg-white);
+  font-family: var(--font-primary);
+  line-height: 1.6;
+}
+
+/* Apply dark theme to all main containers */
+main, section, article {
+  background-color: var(--surface-darker);
+}
+
+/* Dark surface styles */
+.dark-surface {
+  background-color: var(--surface-dark);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
+
+.darker-surface {
+  background-color: var(--surface-darker);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.7);
+}
+
+/* Neon Text Effects */
+.neon-text {
+  text-shadow: var(--neon-text-shadow);
+  color: var(--eg-blue);
+}
+
+.neon-box {
+  box-shadow: var(--neon-glow);
+  border: 1px solid var(--eg-blue);
+}
+
+/* Enhanced Buttons */
+.btn-neon {
+  background: transparent;
+  border: 2px solid var(--eg-blue);
+  color: var(--eg-blue);
+  text-shadow: var(--neon-text-shadow);
+  transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+  background: var(--eg-blue);
+  color: var(--eg-black);
+  box-shadow: var(--neon-glow);
+}
+
+/* Enhanced Games Brand Components */
+.eg-gradient-primary {
+  background: var(--eg-gradient-primary);
+}
+
+.eg-gradient-hero {
+  background: var(--eg-gradient-hero);
+}
+
+.eg-gradient-dark {
+  background: var(--eg-gradient-dark);
+}
+
+/* Button Styles */
+.btn-primary {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--eg-blue);
+  color: var(--eg-white);
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px 0 rgba(0, 100, 255, 0.39);
+  border: none;
+  cursor: pointer;
+}
+
+/* Dark Theme Overrides */
+html {
+  background: var(--surface-darker);
+}
+
+body {
+  background: #000000;
+}
+
+section {
+  background: #000000;
+}
+
+.card, .surface {
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
+
+.bg-white, .bg-gray-50, .bg-gray-100, .bg-gray-200 {
+  background-color: #000000 !important;
+}
+
+[class*="bg-white"] {
+  background-color: #000000 !important;
+}
+
+/* Text colors for dark theme */
+.text-gray-500, .text-gray-600, .text-gray-700, .text-gray-800 {
+  color: #e0e0e0 !important;
+}
+
+/* Card styles for dark theme */
+.card, [class*="shadow"], [class*="border"] {
+  background-color: var(--surface-dark);
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Form elements dark theme */
+input, select, textarea {
+  background-color: var(--surface-darker) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--foreground) !important;
+}
+
+/* Hover states */
+.hover\:bg-gray-100:hover,
+.hover\:bg-white:hover,
+.hover\:bg-gray-50:hover {
+  background-color: var(--surface-darker) !important;
+}
+
+/* Border colors */
+.border, .border-t, .border-b, .border-l, .border-r,
+[class*="border-gray"] {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.btn-primary:hover {
+  background-color: rgba(0, 100, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(0, 100, 255, 0.5);
+}
+
+.btn-secondary {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--eg-blue);
+  color: var(--eg-blue);
+  background-color: transparent;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: var(--eg-blue);
+  color: var(--eg-white);
+}
+
+.btn-cta {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  background: var(--eg-gradient-primary);
+  color: var(--eg-white);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0, 100, 255, 0.3);
+}
+
+.btn-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 100, 255, 0.4);
+}
+
+/* Logo Styles */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--eg-black);
+  color: var(--eg-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
+}
+
+.brand-text .enhanced-games {
+  color: var(--eg-black);
+  font-weight: 700;
+  font-size: 1.125rem;
+  letter-spacing: 0.1em;
+}
+
+.brand-text .peptides {
+  color: var(--eg-blue);
+  font-weight: 700;
+  font-size: 1.125rem;
+  letter-spacing: 0.1em;
+}
+
+.brand-text .tagline {
+  color: var(--eg-gray);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 10;
+  padding: 0 1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 5px var(--eg-blue); }
+  50% { box-shadow: 0 0 20px var(--eg-blue), 0 0 30px var(--eg-cyan); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 1.875rem;
+  }
+  
+  .btn-cta {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .logo-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--eg-black);
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--eg-silver);
+  border-radius: 0.5rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--eg-blue);
+  box-shadow: 0 0 0 3px rgba(0, 100, 255, 0.1);
+}
+
+.form-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--eg-silver);
+  border-radius: 0.5rem;
+  background-color: white;
+  transition: border-color 0.3s ease;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: var(--eg-blue);
+  box-shadow: 0 0 0 3px rgba(0, 100, 255, 0.1);
+}
+
+.form-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--eg-blue);
+  border: 1px solid var(--eg-silver);
+  border-radius: 0.25rem;
+}
+
+.form-checkbox:focus {
+  box-shadow: 0 0 0 2px var(--eg-blue);
+}
+
+/* Product Cards */
+.product-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 100, 255, 0.15);
+  transform: scale(1.05);
+}
+
+/* Quiz Styles */
+.quiz-option {
+  padding: 1rem;
+  border: 2px solid var(--eg-silver);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.quiz-option:hover {
+  border-color: var(--eg-blue);
+  background-color: rgba(0, 100, 255, 0.05);
+}
+
+.quiz-option.selected {
+  border-color: var(--eg-blue);
+  background-color: rgba(0, 100, 255, 0.05);
+}
+
+/* Product Card Background - Easy to customize */
+.product-card-background {
+  background: white;
+  /* To add custom product images later, uncomment and modify:
+  background-image: url('/images/your-product-image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  */
+}
+
+/* Individual product backgrounds - customize as needed */
+.product-bg-basic {
+  background: white;
+  /* Example: background-image: url('/images/basic-product.jpg'); */
+}
+
+.product-bg-premium {
+  background: white;
+  /* Example: background-image: url('/images/premium-product.jpg'); */
+}
+
+.glow {
+  text-shadow: 0 0 10px var(--glow-color),
+               0 0 20px var(--glow-color),
+               0 0 30px var(--glow-color);
+}
+
+.product-bg-elite {
+  background: white;
+  /* Example: background-image: url('/images/elite-product.jpg'); */
+}
